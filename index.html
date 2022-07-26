@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic User Input</title>
+    <link rel="stylesheet" href="input.css" />
+    <script src="https://unpkg.com/vue@3"></script>
+  </head>
+  <body>
+    <section id="userInput">
+      <h1>Welcome to you Login Page</h1>
+      <p v-once>Starting Value: {{count}}</p>
+      <p>result: {{count}}</p>
+      <button @click="count++">Add</button>
+      <button @click="count--">Reduce</button>
+      <input
+        type="text"
+        v-model="name"
+        v-on:keyup.enter="confirmedInput"
+        placeholder="Vorname"
+      />
+      <input type="text" v-model="lastName" placeholder="Nachname">
+      <!-- <input type="text" v-model="name"> -->
+
+      <p class="result">
+        Methods: {{outputFullname()}}
+
+        <!-- Klicke auf Enter:  {{confirmedName}}  -->
+       <!--  <p>{{name}}</p> -->
+      </p>
+      <p>Computed || <mark>Watch</mark>  {{ fullname }}</p>
+      <!--  <p>{{confirmedInput()}}</p> -->
+
+      <form v-on:submit.prevent="submitForm">
+        <input type="text" class="input" id="signup" />
+        <button>Submit Form</button>
+      </form>
+      <button v-on:click="resetInput">Reset Input</button>
+    </section>
+
+    <!-- ertellt eine Funktion, welcher wenn man auf den add button klickt, den counter um 5 erhöht und einen button welcher den counter um 5 verkleinert -->
+
+    <!-- add() {
+        console.log(add 5)
+        this.counter += 5
+    } -->
+
+    <!-- reduce() {
+         console.log(reduce 5)
+        this.counter -= 5
+    } -->
+
+    <script src="input.js"></script>
+  </body>
+</html>
